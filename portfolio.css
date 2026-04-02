@@ -29,8 +29,14 @@ body {
 .header {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .back-btn {
@@ -38,8 +44,6 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
-  width: fit-content;
-  margin-bottom: 4px;
   transition: color 0.2s;
 }
 
@@ -52,7 +56,6 @@ body {
   font-weight: 700;
   color: #ffffff;
   line-height: 1;
-  margin-bottom: 16px;
 }
 
 .divider {
@@ -64,7 +67,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 24px;
 }
 
 .card {
