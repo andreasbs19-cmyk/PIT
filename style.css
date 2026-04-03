@@ -24,7 +24,7 @@ body {
 
 .overlay {
   background:
-    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) padding-box,
+    linear-gradient(180deg, rgba(0, 0, 0, 0.47), rgba(0, 0, 0, 0.67)) padding-box,
     linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1)) border-box;
   border: 1px solid transparent;
   backdrop-filter: blur(16px);
@@ -80,7 +80,7 @@ body {
   height: 42px;
   padding: 0 16px;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)) padding-box,
+    linear-gradient(rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24)) padding-box,
     linear-gradient(180deg, rgba(255, 255, 255, 0.33), rgba(255, 255, 255, 0.09)) border-box;
   border: 1px solid transparent;
   backdrop-filter: blur(10px);
@@ -95,7 +95,7 @@ body {
 
 .menu-item:hover {
   background:
-    linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.22)) padding-box,
+    linear-gradient(rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32)) padding-box,
     linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.12)) border-box;
   transform: translateY(-1px);
 }
