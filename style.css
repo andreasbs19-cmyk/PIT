@@ -90,18 +90,28 @@ body {
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease;
 }
 
 .menu-item:hover {
   background:
-    linear-gradient(rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32)) padding-box,
-    linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.12)) border-box;
-  transform: translateY(-1px);
+    linear-gradient(rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.36)) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.18)) border-box;
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
 }
 
 .menu-item:active {
-  transform: translateY(0);
+  transform: translateY(1px) scale(0.985);
+  box-shadow: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18)) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.07)) border-box;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
 }
 
 .menu-item::after {
@@ -109,6 +119,12 @@ body {
   font-size: 16px;
   opacity: 0.65;
   margin-left: auto;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+
+.menu-item:hover::after {
+  transform: translateX(5px);
+  opacity: 1;
 }
 
 .menu-item-left {
@@ -116,6 +132,40 @@ body {
   align-items: center;
   gap: 12px;
 }
+
+/* ── Load animations ───────────────────────────── */
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes expandWidth {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.overlay {
+  animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.name    { animation: fadeSlideUp 0.6s 0.12s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.title   { animation: fadeSlideUp 0.6s 0.22s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.divider {
+  transform-origin: left;
+  animation: expandWidth 0.55s 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.summary { animation: fadeSlideUp 0.6s 0.38s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+.menu-items .menu-item:nth-child(1) { animation: fadeSlideUp 0.55s 0.48s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.menu-items .menu-item:nth-child(2) { animation: fadeSlideUp 0.55s 0.58s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.menu-items .menu-item:nth-child(3) { animation: fadeSlideUp 0.55s 0.68s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
 /* Mobile */
 @media (max-width: 480px) {
