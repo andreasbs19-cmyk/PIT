@@ -69,10 +69,14 @@ body {
   color: rgba(255, 255, 255, 0.8);
 }
 
+.accent {
+  color: #3b82f6;
+}
+
 .divider {
   width: 100%;
   height: 2px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(59, 130, 246, 0.45);
 }
 
 .summary {
