@@ -159,6 +159,21 @@ body {
   color: rgba(255, 255, 255, 0.53);
   line-height: 1.6;
   margin-top: 4px;
+  padding-left: 14px;
+}
+
+.entry-desc li {
+  list-style: disc;
+  margin-bottom: 2px;
+}
+
+.entry-desc ul {
+  padding-left: 14px;
+  margin-top: 2px;
+}
+
+.entry-desc ul li {
+  list-style: circle;
 }
 
 .section-header {
