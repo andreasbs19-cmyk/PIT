@@ -23,6 +23,20 @@ body {
 .overlay {
   position: relative;
   z-index: 2;
+  isolation: isolate;
+}
+
+/* Blur lives on ::before so .overlay itself doesn't create a backdrop-filter
+   stacking context — this lets child buttons blur through to the background image */
+.overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .hero {
@@ -43,8 +57,6 @@ body {
     linear-gradient(180deg, rgba(0, 0, 0, 0.47), rgba(0, 0, 0, 0.67)) padding-box,
     linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1)) border-box;
   border: 1px solid transparent;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-radius: 14px;
   padding: 32px;
   width: 100%;
@@ -96,10 +108,12 @@ body {
   height: 42px;
   padding: 0 16px;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)) padding-box,
-    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.15)) border-box;
+    linear-gradient(rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24)) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.33), rgba(255, 255, 255, 0.09)) border-box;
   border: 1px solid transparent;
   border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: #ffffff;
   font-size: 15px;
   font-weight: 600;
@@ -113,8 +127,8 @@ body {
 
 .menu-item:hover {
   background:
-    linear-gradient(rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.52)) padding-box,
-    linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.25)) border-box;
+    linear-gradient(rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.36)) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.18)) border-box;
   transform: translateY(-3px) scale(1.015);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
 }
@@ -123,8 +137,8 @@ body {
   transform: translateY(1px) scale(0.985);
   box-shadow: none;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28)) padding-box,
-    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.1)) border-box;
+    linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18)) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.07)) border-box;
   transition: transform 0.08s ease, box-shadow 0.08s ease;
 }
 
