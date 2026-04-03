@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <canvas id="rain" aria-hidden="true"></canvas>
   <div class="hero">
     <div class="overlay">
       <h1 class="name">Andreas</h1>
@@ -39,5 +40,52 @@
       </div>
     </div>
   </div>
+  <script>
+    (function () {
+      const canvas = document.getElementById('rain');
+      const ctx = canvas.getContext('2d');
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const COUNT = window.innerWidth < 480 ? 70 : 110;
+      const ANGLE = 0.18; // slight rightward lean
+
+      const drops = Array.from({ length: COUNT }, () => ({
+        x: Math.random() * (window.innerWidth + 100) - 50,
+        y: Math.random() * window.innerHeight,
+        len: Math.random() * 14 + 8,
+        speed: Math.random() * 2.5 + 1.8,
+        opacity: Math.random() * 0.22 + 0.06,
+        width: Math.random() * 0.5 + 0.25,
+      }));
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drops.forEach(function (d) {
+          ctx.beginPath();
+          ctx.moveTo(d.x, d.y);
+          ctx.lineTo(d.x + d.len * ANGLE, d.y + d.len);
+          ctx.strokeStyle = 'rgba(190, 215, 235, ' + d.opacity + ')';
+          ctx.lineWidth = d.width;
+          ctx.lineCap = 'round';
+          ctx.stroke();
+          d.y += d.speed;
+          d.x += d.speed * ANGLE;
+          if (d.y > canvas.height + d.len) {
+            d.y = -d.len;
+            d.x = Math.random() * (canvas.width + 100) - 50;
+          }
+        });
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    })();
+  </script>
 </body>
 </html>
