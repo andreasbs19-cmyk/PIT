@@ -187,6 +187,28 @@ body {
   line-height: 1.7;
 }
 
+.section-list {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  padding-left: 16px;
+}
+
+.section-list li {
+  list-style: disc;
+  margin-bottom: 4px;
+}
+
+.section-list ul {
+  padding-left: 16px;
+  margin-top: 4px;
+}
+
+.section-list ul li {
+  list-style: circle;
+}
+
 .section-header {
   transition: opacity 0.2s;
 }
