@@ -52,13 +52,13 @@
       resize();
       window.addEventListener('resize', resize);
 
-      const COUNT = window.innerWidth < 480 ? 80 : 120;
+      const COUNT = window.innerWidth < 480 ? 140 : 200;
 
       const drops = Array.from({ length: COUNT }, () => ({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
         len: Math.random() * 30 + 20,
-        speed: Math.random() * 3 + 2,
+        speed: Math.random() * 5 + 6,
         opacity: Math.random() * 0.2 + 0.06,
         width: Math.random() * 0.5 + 0.2,
       }));
