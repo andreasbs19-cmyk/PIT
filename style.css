@@ -40,7 +40,7 @@ body {
 
 .overlay {
   background:
-    linear-gradient(160deg, rgba(5, 8, 20, 0.78), rgba(8, 14, 35, 0.88)) padding-box,
+    linear-gradient(160deg, rgba(5, 8, 20, 0.03), rgba(8, 14, 35, 0.12)) padding-box,
     linear-gradient(180deg, rgba(100, 170, 255, 0.90), rgba(60, 120, 255, 0.12)) border-box;
   border: 1px solid transparent;
   border-radius: 20px;
@@ -101,7 +101,7 @@ body {
   height: 50px;
   padding: 0 18px;
   background: rgba(225, 235, 255, 0.92);
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 12px;
   color: #0d1b3e;
   font-size: 15px;
